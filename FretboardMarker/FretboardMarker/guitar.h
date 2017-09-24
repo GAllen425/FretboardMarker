@@ -80,24 +80,15 @@ public:
 	{
 		cout << "Input notes: " << endl;
 		string s;
-		bool loop_test = true;
 		cin.ignore();
-		while (loop_test)
-		{
-			getline(cin, s);
-			if (s.empty())
-			{
-				loop_test = false;
-				cin.clear();
-				break;
-			}
-			input.push_back(s);
-		}
+		getline(cin, s);
+		int max = totalNumberStrings(s);
+		inputValues.resize(max);
 
-		for (unsigned int i = 0; i<input.size(); i++)
+		for (int i = 0; i < max; i++)
 		{
+			input.push_back(tuningToGuitarString(s,i));
 			inputValues.push_back(semitoneValue(input[i]));
-			cout << input[i] << endl;
 		}
 
 	};
